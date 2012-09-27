@@ -53,6 +53,10 @@ module ActiveSupport
         end
       end
 
+      def keys
+        @data.keys
+      end
+
       def finish
         @data.finish
       end
