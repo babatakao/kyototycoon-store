@@ -53,6 +53,11 @@ module ActiveSupport
         end
       end
 
+      def finish
+        @data.finish
+      end
+      alias_method :reset, :finish
+
       protected
       # Read an entry from the cache.
       def read_entry(key, options) # :nodoc:
