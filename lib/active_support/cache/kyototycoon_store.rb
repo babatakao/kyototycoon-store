@@ -21,16 +21,14 @@ module ActiveSupport
         super(options)
       end
 
+      # increment is currently not supported (KyotoTycoon not supported increment Marshaled value)
       def increment(name, amount = 1, options = nil)
-        instrument(:increment, name, :amount => amount) do
-          @data.increment(name, amount)
-        end
+        raise NotImplementedError.new("#{self.class.name} does not support increment")
       end
 
+      # decrement is currently not supported (KyotoTycoon not supported decrement Marshaled value)
       def decrement(name, amount = 1, options = nil)
-        instrument(:decrement, name, :amount => amount) do
-          @data.decrement(name, amount)
-        end
+        raise NotImplementedError.new("#{self.class.name} does not support decrement")
       end
 
       def clear(options = nil)
