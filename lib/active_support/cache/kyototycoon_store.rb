@@ -46,6 +46,8 @@ module ActiveSupport
 
       def delete_prefix(prefix, options = nil)
         instrument(:delete_prefix, prefix) do
+          options = merged_options(options)
+          prefix = namespaced_key(prefix, options)
           keys = @data.match_prefix(prefix)
           @data.remove_bulk(keys)
         end
