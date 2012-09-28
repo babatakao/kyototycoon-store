@@ -60,6 +60,7 @@ module ActiveSupport
       def finish
         @data.finish
       end
+
       alias_method :reset, :finish
 
       protected
@@ -93,10 +94,19 @@ module ActiveSupport
 
       private
       def build_kyoto_tycoon(addresses)
-        host, port = addresses.first.split(':') if addresses.first
+        if address = addresses.shift
+          host, port = address.split(':')
+        end
         host ||= KyotoTycoon::DEFAULT_HOST
         port ||= KyotoTycoon::DEFAULT_PORT
-        KyotoTycoon.new(host, port.to_i)
+        kt = KyotoTycoon.new(host, port.to_i)
+
+        # backup servers
+        addresses.each do |address|
+          host, port = address.split(':')
+          kt.servers << [host, port.to_i]
+        end
+        kt
       end
     end
   end
