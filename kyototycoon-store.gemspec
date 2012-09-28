@@ -15,8 +15,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Kyototycoon::Store::VERSION
 
-  gem.add_dependency('kyototycoon', '~>0.6.1')
-  gem.add_dependency('active_support', '~>3.0.0')
-  gem.add_dependency('rspec', '~>2.10.0')
+  gem.add_dependency('kyototycoon', '>=0.6.1')
+  gem.add_dependency('active_support', '~>3.0')
+  gem.add_dependency('rspec', '~>2.10')
   gem.add_dependency('simplecov', '>=0')
 end
