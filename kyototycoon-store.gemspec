@@ -16,6 +16,7 @@ Gem::Specification.new do |gem|
   gem.version       = Kyototycoon::Store::VERSION
 
   gem.add_dependency('kyototycoon', '~>0.6.1')
-  gem.add_dependency('rspec')
   gem.add_dependency('active_support')
+  gem.add_dependency('rspec')
+  gem.add_dependency('simplecov')
 end
