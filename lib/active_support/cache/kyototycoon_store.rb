@@ -96,7 +96,7 @@ module ActiveSupport
         host, port = addresses.first.split(':') if addresses.first
         host ||= KyotoTycoon::DEFAULT_HOST
         port ||= KyotoTycoon::DEFAULT_PORT
-        KyotoTycoon.new(host, port)
+        KyotoTycoon.new(host, port.to_i)
       end
     end
   end
