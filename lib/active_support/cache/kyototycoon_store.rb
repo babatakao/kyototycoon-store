@@ -93,7 +93,7 @@ module ActiveSupport
 
       private
       def build_kyoto_tycoon(addresses)
-        host, port = addresses.first.try(:split, ':')
+        host, port = addresses.first.split(':') if addresses.first
         host ||= KyotoTycoon::DEFAULT_HOST
         port ||= KyotoTycoon::DEFAULT_PORT
         KyotoTycoon.new(host, port)
