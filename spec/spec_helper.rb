@@ -5,6 +5,11 @@ This script access http://0.0.0.0:19999/ and destroy all records.
 =end
 
 require "simplecov"
+begin
+require 'simplecov-rcov'
+SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
+rescue
+end
 SimpleCov.start
 
 $:.unshift(File.join(File.dirname(File.dirname(__FILE__)), 'lib'))
