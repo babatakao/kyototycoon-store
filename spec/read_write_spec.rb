@@ -49,7 +49,7 @@ describe ActiveSupport::Cache::KyototycoonStore do
       @store.write('hoge', nil).should be_kt_success
     end
     it "write nil key should be fail" do
-      @store.write(nil, nil).should be_false
+      @store.write(nil, nil).should be_falsey
     end
     it "write two times should be success" do
       @store.write('hoge', 'piyo').should be_kt_success
@@ -123,7 +123,7 @@ describe ActiveSupport::Cache::KyototycoonStore do
     end
     it "delete with error should returns false" do
       @store.instance_variable_get(:@data).stub(:remove).and_raise('error')
-      @store.delete(:a).should be_false
+      @store.delete(:a).should be_falsey
     end
   end
   describe "delete_prefix, delete_matched" do
